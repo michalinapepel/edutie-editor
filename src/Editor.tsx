@@ -7,7 +7,7 @@ import { Block } from "./types";
 //BlockManager
 
 export default function Editor() {
-  const { blockList, addBlock, deleteBlock, updateBlock, deleteEmptyBlocks } = useBlockManager();
+  const { blockList, addBlock, deleteBlock, updateBlock, deleteEmptyBlocks, generateID } = useBlockManager();
   //const [blockList, setBlockList] = useState<Array<Block<any>>>([]);
   const [currentBlock, setCurrentBlock] = useState<Block<any> | undefined>();
 
@@ -17,7 +17,7 @@ export default function Editor() {
         onClick={() =>
           addBlock({
             data: "block",
-            id: "1",
+            id: generateID(),
             renderBlock: () => (
               <p contentEditable="true">
                 <i>Wpisz tutaj...</i>

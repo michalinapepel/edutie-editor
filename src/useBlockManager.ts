@@ -24,5 +24,9 @@ export default function useBlockManager() {
     );
   }
 
-  return { blockList, addBlock, deleteBlock, updateBlock, deleteEmptyBlocks };
+  function generateID() {
+    return Date.now().toString();
+  }
+
+  return { blockList, addBlock, deleteBlock, updateBlock, deleteEmptyBlocks, generateID };
 }
