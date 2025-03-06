@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface Block<T> {
-  data: T;
   id: string;
+  data: T;
   renderBlock: () => ReactNode;
 }
