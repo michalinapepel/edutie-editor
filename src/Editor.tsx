@@ -7,29 +7,18 @@ import { Block } from "./types";
 //BlockManager
 
 export default function Editor() {
-  const { blockList, addBlock, deleteBlock, updateBlock, deleteEmptyBlocks, generateID } = useBlockManager();
-  //const [blockList, setBlockList] = useState<Array<Block<any>>>([]);
-  const [currentBlock, setCurrentBlock] = useState<Block<any> | undefined>();
+  const { blockList, addBlock, deleteBlock, updateBlock, deleteEmptyBlocks, generateID, currentBlock } =
+    useBlockManager();
 
   return (
     <div>
-      <button
-        onClick={() =>
-          addBlock({
-            data: "block",
-            id: generateID(),
-            renderBlock: () => (
-              <p contentEditable="true">
-                <i>Wpisz tutaj...</i>
-              </p>
-            ),
-          })
-        }>
-        Add Block
-      </button>
-      <button onClick={() => deleteBlock("1")}>Delete Block</button>
+      <button onClick={() => addBlock()}>Dodaj sekcję</button>
+      <p>Current Block ID: {currentBlock}</p>
+      <button onClick={() => deleteBlock(currentBlock)}>Usuń sekcję</button>
 
-      {blockList.map((o) => o.renderBlock())}
+      {blockList.map((o) => (
+        <div key={o.id}>o.renderBlock()</div>
+      ))}
     </div>
   );
 }
