@@ -17,7 +17,7 @@ export default function Editor() {
       <button onClick={() => deleteBlock(currentBlock)}>Usuń sekcję</button>
 
       {blockList.map((o) => (
-        <div key={o.id}>o.renderBlock()</div>
+        <div key={o.id}>{o.renderBlock()}</div>
       ))}
     </div>
   );

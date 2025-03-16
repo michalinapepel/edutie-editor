@@ -5,7 +5,6 @@ export default function useBlockManager() {
   const [blockList, setBlockList] = useState<Array<Block<any>>>([]);
   const [currentBlock, setCurrentBlock] = useState<string | null>(null);
 
-  // param is currentBlockId, filtering doesn't actually delete, but it works in this case
   function deleteBlock(id: string | null) {
     setBlockList((oldArray) => oldArray.filter((block) => block.id !== id));
   }
